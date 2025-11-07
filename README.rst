@@ -108,7 +108,7 @@ Example of how the binary is built, based on Debian Bullseye.
 
 ::
 
-    git clone https://github.com/milkey-mouse/backup-vm.git
+    git clone https://github.com/feldsam/backup-vm.git
     cd backup-vm
     sudo apt-get install python3-pip python3-setuptools python3-libvirt
     python3 setup.py build
