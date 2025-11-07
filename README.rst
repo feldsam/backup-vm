@@ -39,6 +39,9 @@ Examples
 Backup
 ^^^^^^
 
+Need to init Borg repo first
+    borg init -e none /path/to/myrepo
+
 Back up a virtual machine to a single Borg repo::
 
     backup-vm myVM myrepo::myBackup
@@ -50,6 +53,10 @@ Back up a virtual machine ``webserver`` to an onsite and an offsite Borg reposit
 Back up only the system drive of a Windows VM::
 
     backup-vm win10 sda myrepo::win10-{now:%Y-%m-%d}
+
+Backup onsite only with compression::
+
+    backup-vm Unifi /backup/Unifi::vm-{now:%Y-%m-%d} --borg-args --compression auto,zstd,3
 
 Restore
 ^^^^^^^
@@ -104,15 +111,15 @@ Usage
 Building
 --------
 
-Example of how the binary is built, based on Debian Bullseye.
+Example of how the binary is built, based on OL9.
 
 ::
 
     git clone https://github.com/feldsam/backup-vm.git
     cd backup-vm
-    sudo apt-get install python3-pip python3-setuptools python3-libvirt
+    dnf install python3-pip
     python3 setup.py build
-    sudo python3 setup.py install
+    python3 setup.py install
 
 ::
 
